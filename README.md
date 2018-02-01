@@ -20,7 +20,7 @@ Copy the file `login_ratelimit_middleware.py` to a path in your project and add 
 ```
 MIDDLEWARE_CLASSES = (
     ...,
-    login_ratelimit_middleware.LoginRateLimitMiddleware,
+    <path.in.your.project>.login_ratelimit_middleware.LoginRateLimitMiddleware,
 )
 ```
 
