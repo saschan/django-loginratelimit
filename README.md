@@ -69,3 +69,7 @@ login_ratelimit_triggered = dispatch.Signal(providing_args=['username', 'ip'])
 ```
 
 A logging warning is also issued after reaching the rate limit, check the `LOGIN_RATELIMIT_LOG_ON_LIMIT` and `LOGIN_RATELIMIT_LOGGER_NAME` settings for details.
+
+## Compatibility
+
+Unfortunately, I've only been able to test this with Django 1.8. If there are any incompatibilities with other Django versions, please let me know!
