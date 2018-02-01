@@ -37,7 +37,7 @@ default_settings = {
     
     # URLs (matched inexact by beginning) to monitor for login POSTs, 
     # and the login <form> username field name to use
-    # dict: {'URL': 'user_id_field_fieldname', ...}
+    # dict: {'URL': 'user_field_fieldname', ...}
     'LOGIN_RATELIMIT_LOGIN_URLS': {
         '/admin/login/': 'username',
     },
@@ -109,7 +109,7 @@ def register_and_limit_failed_login_attempt(sender, credentials, **kwargs):
 
 
 class LoginRateLimitMiddleware(object):
-    """ A Middleware that detects failed login attempts per user credential (username) 
+    """ A Middleware that detects failed login attempts per username 
         and incurs a rate-limit specifically for the used credential after n specified attemps. 
         
         During an active rate limit, this middleware prevents *any* authentication attempts 
@@ -127,7 +127,7 @@ class LoginRateLimitMiddleware(object):
         
         Other settings can be found in `login_ratelimit_middleware.default_settings`.
         
-        Note: unless you override 'admin/login.py' to include the django messages, the rate limit
+        Note: unless you override 'admin/login.html' to include the django messages, the rate limit
         warning message will *not* be displayed in the django admin login interface!
         
         Other details:
